@@ -1,0 +1,27 @@
+{
+  "name": "auth-demo-mongodb-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashx3s/auth-demo-mongodb-express.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ashx3s/auth-demo-mongodb-express/issues"
+  },
+  "homepage": "https://github.com/ashx3s/auth-demo-mongodb-express#readme",
+  "dependencies": {
+    "argon2": "^0.44.0",
+    "body-parser": "^2.2.2",
+    "express": "^5.2.1",
+    "mongoose": "^9.2.4"
+  }
+}
