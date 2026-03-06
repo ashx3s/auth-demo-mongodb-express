@@ -2,9 +2,17 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const path = require("path");
+
+// import our router
+const authRoutes = require("./routes/auth");
+
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+app.use(bodyParser.json());
+
+// set up the router
+app.use("/api/auth", authRoutes);
 
 async function connectDB() {
   try {
