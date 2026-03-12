@@ -15,7 +15,7 @@ router.post("/register", async (req, res) => {
     const hashedPassword = await argon2.hash(password);
 
     //create a new user
-    const newUser = new User({ username, password: hashedPassword });
+    const newUser = new User({ username, password: hashedPassword, role });
     // save the user
     await newUser.save();
 
@@ -43,8 +43,15 @@ router.post("/login", async (req, res) => {
     if (!isMatch)
       return res.status(400).json({ message: "Invalid Credentials" });
 
+    // Gen JWT to and use to verify user roles
+    const token = jwt.sign(
+      { id: user._id, role: user.role },
+      process.env.JWT_SECRET,
+      { expiresIn: "1h" },
+    );
+
     // if successful... say so :)
-    res.status(200).json({ message: `${username} Login Successful` });
+    res.status(200).json({ message: `${username} Login Successful`, token });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
