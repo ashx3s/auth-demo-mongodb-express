@@ -2,7 +2,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-
+const pageRoutes = require("./routes/pages");
 // import our router
 const authRoutes = require("./routes/auth");
 
@@ -13,6 +13,7 @@ app.use(bodyParser.json());
 
 // set up the router
 app.use("/api/auth", authRoutes);
+app.use("/", pageRoutes);
 
 async function connectDB() {
   try {
