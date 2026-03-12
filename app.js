@@ -1,4 +1,5 @@
 "use strict";
+const path = require("path");
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -11,6 +12,8 @@ const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 
+// serve static files
+app.use(express.static(path.join(__dirname, "public")));
 // set up the router
 app.use("/api/auth", authRoutes);
 app.use("/", pageRoutes);

@@ -17,6 +17,8 @@ form.addEventListener("submit", async (e) => {
         password: e.target.password.value,
       }),
     });
+    const data = await res.json();
+    console.log(data);
     console.log("User Registered!", e.target.username.value);
   } catch (error) {
     console.error("Something went wrong", error);
